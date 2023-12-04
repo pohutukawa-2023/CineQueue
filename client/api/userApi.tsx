@@ -10,10 +10,10 @@ export async function getUser(token: unknown) {
 }
 
 export async function postUser(token: unknown) {
-  const res = await request
+  await request
     .post('/api/v1/cine')
     .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
-
-  return res.body
+  const message = 'user api works'
+  return message
 }
