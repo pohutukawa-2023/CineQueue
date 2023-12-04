@@ -22,19 +22,20 @@ function Nav() {
   }
 
   const handleSignIn = async () => {
-    loginWithRedirect()
+    loginWithRedirect({
+      authorizationParams: {
+        redirect_uri: `${window.location.origin}/callback`,
+      },
+    })
   }
 
   function handleNavMenuClick() {
     setToggledNavMenu(!toggledNavMenu)
   }
 
-  if (user) {
+  useEffect(() => {
     handleToken()
-  }
-  // useEffect(() => {
-  //   handleToken()
-  // })
+  }, [])
 
   return (
     <>
