@@ -1,7 +1,14 @@
 import React from 'react'
+import { addToWatchlist } from '../api/dbApi'
 
 function TvShowDetails(props: Props) {
   const { details } = props
+
+  async function handleWatchlist() {
+    const item = { id: details.id, type: 'show' }
+
+    return await addToWatchlist(item)
+  }
 
   return (
     <section className="bg-black">
@@ -13,7 +20,10 @@ function TvShowDetails(props: Props) {
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
             {details.overview}
           </p>
-          <button className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+          <button
+            onClick={() => handleWatchlist()}
+            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+          >
             Add to watchlist
             <svg
               className="w-5 h-5 ml-2 -mr-1"
