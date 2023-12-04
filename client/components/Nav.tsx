@@ -10,11 +10,18 @@ function Nav() {
   const { user, logout, loginWithRedirect, getAccessTokenSilently } = useAuth0()
   const [toggledNavMenu, setToggledNavMenu] = useState(false)
 
+  async function handleToken() {
+    const token = await getAccessTokenSilently()
+    console.log(token)
+    if (!user) await postUser(token)
+    return
+  }
+
   const handleSignOut = () => {
     logout()
   }
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     loginWithRedirect()
   }
 
@@ -22,17 +29,12 @@ function Nav() {
     setToggledNavMenu(!toggledNavMenu)
   }
 
-  async function handleToken() {
-    // const token = user?.sub
-    const token = await getAccessTokenSilently()
-    console.log(token)
-
-    await postUser(token)
-  }
-
-  useEffect(() => {
+  if (user) {
     handleToken()
-  })
+  }
+  // useEffect(() => {
+  //   handleToken()
+  // })
 
   return (
     <>
