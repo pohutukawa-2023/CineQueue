@@ -3,7 +3,7 @@ export async function up(knex) {
     table.increments('id').primary()
     table.integer('content_id')
     table.string('movie_or_show')
-    table.integer('auth_id')
+    table.string('auth_id')
   })
 }
 

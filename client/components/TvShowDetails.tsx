@@ -1,7 +1,14 @@
 import React from 'react'
+import { checkId } from '../../server/db/db'
 
 function TvShowDetails(props: Props) {
   const { details } = props
+
+  const content_id = details.id
+
+  function checkIfInWatchlist(id: number) {
+    checkId(id)
+  }
 
   return (
     <section className="bg-black">

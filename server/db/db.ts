@@ -10,3 +10,7 @@ interface User {
 export async function upsertProfile(user: User, db = connection) {
   await db('users').insert(user).onConflict('auth_id').merge()
 }
+
+export function checkId(id: number, db = connection) {
+  return db('watchlist').select('id').where('auth_id', id)
+}
