@@ -1,14 +1,16 @@
-import React from 'react'
-import { checkId } from '../../server/db/db'
+// import React from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { getContentIdByAuthId } from '../../server/db/db'
 
 function TvShowDetails(props: Props) {
   const { details } = props
 
-  const content_id = details.id
-
-  function checkIfInWatchlist(id: number) {
-    checkId(id)
-  }
+  // const content_id = details.id
+  // const { data } = useQuery({
+  //   queryKey: ['smt'],
+  //   queryFn: () => getContentIdByAuthId('3'),
+  // })
+  // console.log(data)
 
   return (
     <section className="bg-black">
@@ -65,3 +67,34 @@ export default TvShowDetails
 <p>{details.overview}</p>
 </div> */
 }
+
+// !!!!!!!_+-*! VITOR !*-+_!!!!!//
+
+// const arrOfContent = getContentIdByAuthId('3')
+
+// console.log(arrOfContent)
+
+// function checkIfInWatchlist(id: never) {
+// if(arrOfContent.includes(id)){
+//   return(<>
+// already on Watchlist
+// <i className="fa-solid fa-check" style="color: #1c8307;"></i>
+// </>)}
+// else{
+//   <button className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+//           Add to watchlist
+//           <svg
+//             className="w-5 h-5 ml-2 -mr-1"
+//             fill="currentColor"
+//             viewBox="0 0 20 20"
+//             xmlns="http://www.w3.org/2000/svg"
+//           >
+//             <path
+//               fillRule="evenodd"
+//               d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+//               clipRule="evenodd"
+//             ></path>
+//           </svg>
+//         </button>
+// }
+// }

@@ -22,7 +22,6 @@ function DetailsPage() {
     queryKey: ['trailer', type, id],
     queryFn: () => getTrailer(type as string, Number(id)),
   })
-  console.log(trailer)
 
   const {
     data: details,
