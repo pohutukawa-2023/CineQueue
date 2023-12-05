@@ -19,8 +19,10 @@ root.render(
   <Auth0Provider
     domain="vitor-pohutukawa.au.auth0.com"
     clientId="Xcg63DxMMQdqKtvhIdt5zdPPPAtgVFoP"
-    redirectUri={window.location.origin}
-    audience="https://cine/api"
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+      audience: 'https://cine/api',
+    }}
   >
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />

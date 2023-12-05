@@ -7,6 +7,7 @@ import Seen from './pages/Seen.tsx'
 import Watchlist from './pages/Watchlist.tsx'
 import Dashboard from './pages/Dashboard.tsx'
 import SearchResults from './pages/SearchResults.tsx'
+import Callback from './components/Callback.tsx'
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />}>
@@ -16,5 +17,6 @@ export const routes = createRoutesFromElements(
     <Route path="watchlist" element={<Watchlist />} />
     <Route path="dashboard" element={<Dashboard />} />
     <Route path="results" element={<SearchResults />} />
+    <Route path="callback" element={<Callback />} />
   </Route>
 )
