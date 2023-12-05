@@ -7,15 +7,8 @@ import Search from './Search.tsx'
 import { postUser } from '../api/userApi.tsx'
 
 function Nav() {
-  const { user, logout, loginWithRedirect, getAccessTokenSilently } = useAuth0()
+  const { user, logout, loginWithRedirect } = useAuth0()
   const [toggledNavMenu, setToggledNavMenu] = useState(false)
-
-  async function handleToken() {
-    const token = await getAccessTokenSilently()
-    console.log(token)
-    if (!user) await postUser(token)
-    return
-  }
 
   const handleSignOut = () => {
     logout()
@@ -32,10 +25,6 @@ function Nav() {
   function handleNavMenuClick() {
     setToggledNavMenu(!toggledNavMenu)
   }
-
-  useEffect(() => {
-    handleToken()
-  }, [])
 
   return (
     <>
